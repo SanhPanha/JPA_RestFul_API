@@ -1,0 +1,22 @@
+
+spring:
+  application:
+    name: RESTful-sample-JPA
+  datasource:
+    username: postgres
+    password: Panha12345
+    url: jdbc:postgresql://localhost:5432/restful_sample_jpa_db
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect : org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto : update
+    show-sql: true
+
+springdoc:
+  swagger-ui:
+    path: /
