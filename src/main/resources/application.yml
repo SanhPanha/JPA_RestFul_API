@@ -22,5 +22,6 @@ springdoc:
     path: /
 
 file_storage:
-  image_location: "filestorage/images"
+  image_location: "filestorage/images/"
+  client_path: "/images/**"
   data_location: "filestorage/data"

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -43,6 +44,10 @@ public class FileStorageServiceImpl implements FileStorageService {
 
     @Override
     public List<String> uploadMultipleFiles(MultipartFile[] files) {
-        return null;
+        List<String> fileName = new ArrayList<>();
+        for(var file: files){
+            fileName.add(uploadSingleFile(file));
+        }
+        return fileName;
     }
 }
