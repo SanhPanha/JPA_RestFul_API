@@ -5,10 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.example.restfulsamplejpa.service.FileStorageService;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
@@ -52,4 +49,9 @@ public class FileStorageRestController {
         return response;
     }
 
+    @DeleteMapping("/{fileName}")
+    public HashMap<String, String> deleteFile(@PathVariable String fileName){
+        fileStorageService.deleteFileByName(fileName);
+        return null;
+    }
 }

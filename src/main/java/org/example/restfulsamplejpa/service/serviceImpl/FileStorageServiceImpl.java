@@ -50,4 +50,18 @@ public class FileStorageServiceImpl implements FileStorageService {
         }
         return fileName;
     }
+
+    @Override
+    public void deleteFileByName(String fileName) {
+        try {
+            Path deleteDestination = Path.of(fileStorageLocation).resolve(fileName);
+            if (Files.exists(deleteDestination)){
+                Files.delete(deleteDestination);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error while deleting file");
+        }
+    }
 }
